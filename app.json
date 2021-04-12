@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "web": {
+      "build": {
+        "babel": {
+          "include": ["moti"]
+        }
+      }
+    },
+    "name": "test",
+    "slug": "test"
+  }
+}

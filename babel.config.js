@@ -1,4 +1,8 @@
-// @generated: @expo/next-adapter@2.1.52
-// Learn more: https://docs.expo.io/guides/using-nextjs/
+module.exports = function (api) {
+  api.cache(true);
 
-module.exports = { presets: ['@expo/next-adapter/babel'] };
+  return {
+    presets: ["@expo/next-adapter/babel"],
+    plugins: ["react-native-reanimated/plugin"],
+  };
+};

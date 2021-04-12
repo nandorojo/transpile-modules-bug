@@ -1,8 +1,19 @@
-// @generated: @expo/next-adapter@2.1.52
-// Learn more: https://docs.expo.io/guides/using-nextjs/
+const { withExpo } = require("@expo/next-adapter");
 
-const { withExpo } = require('@expo/next-adapter');
+const withTM = require("next-transpile-modules")([
+  "moti",
+  "@motify/core",
+  "@motify/components",
+]);
 
-module.exports = withExpo({
-  projectRoot: __dirname,
-});
+const withPlugins = require("next-compose-plugins");
+
+module.exports = withPlugins([
+  withTM,
+  [
+    withExpo,
+    {
+      projectRoot: __dirname,
+    },
+  ],
+]);
