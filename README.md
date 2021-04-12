@@ -2,8 +2,8 @@
 
 To run:
 
-`yarn install`
-`yarn next`
+- `yarn install`
+- `yarn next`
 
 Open localhost:3000
 
