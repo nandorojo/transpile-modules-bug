@@ -2,13 +2,17 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { MotiView } from "moti"; // this breaks
-// import { MotiView } from '@motify/components/src' //this works
+
+/**
+ * Problem: @motify/core is a nested node_module of moti.
+ * Thus, it is ignored for transpilation.
+ */
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Ayy Expo + Next.js 👋</Text>
-      {/* this breaks */}
+      {/* this breaks. comment it out to fix it. */}
       <MotiView />
     </View>
   );
