@@ -1,0 +1,22 @@
+diff --git a/node_modules/react-native-reanimated/lib/reanimated2/js-reanimated/JSReanimated.js b/node_modules/react-native-reanimated/lib/reanimated2/js-reanimated/JSReanimated.js
+index c3962dc..c0e2877 100644
+--- a/node_modules/react-native-reanimated/lib/reanimated2/js-reanimated/JSReanimated.js
++++ b/node_modules/react-native-reanimated/lib/reanimated2/js-reanimated/JSReanimated.js
+@@ -11,10 +11,14 @@ export default class JSReanimated {
+         this._mapperRegistry = new MapperRegistry(this);
+         this._frames = [];
+         this.timeProvider = null;
+-        this.timeProvider = process.env.JEST_WORKER_ID
+-            ? { now: () => Date.now() }
+-            : window.performance;
++        this.timeProvider = {}
++        if (process.env.JEST_WORKER_ID) {
++          this.timeProvider.now = () => Date.now();
++        } else {
++          this.timeProvider.now = () => window.performance.now();
++        }
+     }
++ 
+     pushFrame(frame) {
+         this._frames.push(frame);
+         this.maybeRequestRender();

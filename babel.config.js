@@ -3,6 +3,9 @@ module.exports = function (api) {
 
   return {
     presets: ["@expo/next-adapter/babel"],
-    plugins: ["react-native-reanimated/plugin"],
+    plugins: [
+      "react-native-reanimated/plugin",
+      "@babel/plugin-proposal-class-properties",
+    ],
   };
 };
